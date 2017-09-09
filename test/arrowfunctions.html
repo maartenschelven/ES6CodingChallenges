@@ -1,0 +1,76 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, minimum-scale=1, initial-scale=1, user-scalable=yes">
+
+    <title>Arrow functions =></title>
+
+    <script src="../../webcomponentsjs/webcomponents-lite.js"></script>
+    <script src="../../web-component-tester/browser.js"></script>
+
+  </head>
+  <body>
+
+    <script>
+      "use strict";
+
+      suite('arrow function', function() {
+
+        test('replace the functions with arrow functions', function() {
+
+            let getMessage = function(arr1, arr2) {
+                // https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Global_Objects/Array/concat
+                const combinedArray  = arr1.concat(arr2);
+                // https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Global_Objects/Array/reduce
+                let message = combinedArray.reduce(function(accumulator, currentValue) {
+                    return accumulator + ' ' + currentValue;
+                });
+                return message;
+            };
+            // change code above this line
+
+            assert.equal(getMessage(['chapter'],['full', 'stack']), 'chapter full stack');
+        });
+
+
+        test('fix it with arrow functions', function(done) {
+
+            this.blinker = {
+                on: true,
+                blink: function () {
+                    setTimeout(function () {
+                        this.on = false;
+                    }, 0);
+                }
+            }
+
+            // change code above this line
+
+            assert.equal(this.blinker.on, true);
+            this.blinker.blink();
+            setTimeout(function () {
+                assert.equal(this.blinker.on, false);
+                done()
+            }.bind(this), 300)
+
+        });
+
+        test('use arrow functions with map and filter', function() {
+
+            // https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Global_Objects/Array/map
+            // https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Global_Objects/Array/filter
+            const realNumberArray = [4, 5.6, -9.8, 3.14, 42, 6, 8.34];
+            console.log(typeof(4.9));
+            // change code below this line
+            var squaredIntegers = realNumberArray;
+            // change code above this line
+
+            assert.deepEqual(squaredIntegers, [16, 1764, 36]);
+        })
+
+        });
+    </script>
+
+  </body>
+</html>

@@ -1,0 +1,66 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, minimum-scale=1, initial-scale=1, user-scalable=yes">
+
+    <title>Fixing code with let</title>
+
+    <script src="../../web-component-tester/browser.js"></script>
+
+  </head>
+  <body>
+
+    <script>
+      "use strict";
+
+      suite('letconstandscope', function() {
+
+        test('fix it by using let', function() {
+
+            let updateFunctions = []
+            for (let i = 0; i < 5; i++) {
+                updateFunctions.push(function() {
+                    return i
+                });
+            }
+
+            // only change the code above this line
+            assert.equal(updateFunctions[4](), 4);
+            assert.equal(updateFunctions.length, 5);
+            assert.equal(updateFunctions[0](), 0);
+        });
+
+        test('function and block scope', function () {
+
+            function checkScope() {
+                let i = "function scope";
+                if (true) {
+                    let i = "block scope";
+                    console.log("Block scope i is: ", i);
+                }
+                console.log("Function scope i is: ", i);
+                return i;
+            }
+
+            // only change the code above this line.
+            assert.equal(checkScope(), 'function scope');
+        });
+
+        test('const can not be reassigned but the object can still be altered', function () {
+
+            const s = [ 5, 7, 2 ];
+            // change code below this line
+            s.reverse()
+            // change code above this line
+
+            assert.deepEqual(s, [ 2 , 7 , 5 ]);
+        })
+
+
+
+      });
+    </script>
+
+  </body>
+</html>

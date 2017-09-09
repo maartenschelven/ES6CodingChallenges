@@ -1,0 +1,68 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, minimum-scale=1, initial-scale=1, user-scalable=yes">
+
+    <title>Fixing code with let</title>
+
+    <script src="../../web-component-tester/browser.js"></script>
+
+
+  </head>
+  <body>
+
+    <script>
+      "use strict";
+
+      suite('arrow function', function() {
+
+        test('replace the functions with arrow functions', function() {
+
+            let getMessage = function(arr1, arr2) {
+                return arr1.concat(arr2).reduce((accumulator, currentValue) =>  accumulator + ' ' + currentValue);
+            };
+            // change code above this line
+            assert.equal(getMessage(['chapter'],['full', 'stack']), 'chapter full stack');
+        });
+
+
+        test('fix it  with arrow functions', function(done) {
+
+          this.blinker = {
+              on: true,
+              blink: function () {
+                  setTimeout(() => {
+                      this.on = false;
+                  }, 0);
+              }
+          }
+
+          // change code above this line
+
+          assert.equal(this.blinker.on, true);
+          this.blinker.blink();
+          setTimeout(function () {
+              assert.equal(this.blinker.on, false);
+              done()
+          }.bind(this), 300)
+
+        });
+
+        test('arrow functions with map and filter', function() {
+
+            const realNumberArray = [4, 5.6, -9.8, 3.14, 42, 6, 8.34];
+            console.log(typeof(4.9));
+            // change code below this line
+            let squaredIntegers = realNumberArray.filter((number) => number > 0 && Number.isInteger(number)
+            ).map((number) => number*number);
+            // change code above this line
+
+            assert.deepEqual(squaredIntegers, [16, 1764, 36]);
+        })
+
+        });
+    </script>
+
+  </body>
+</html>

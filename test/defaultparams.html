@@ -1,0 +1,48 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, minimum-scale=1, initial-scale=1, user-scalable=yes">
+
+    <title>Fixing code with default params</title>
+
+    <script src="../../webcomponentsjs/webcomponents-lite.js"></script>
+    <script src="../../web-component-tester/browser.js"></script>
+
+  </head>
+  <body>
+
+    <script>
+      "use strict";
+
+      suite('default params', function() {
+
+        test('fix it by using default params', function() {
+
+          function getTotal(price, tax) {
+            return price + tax;
+          }
+
+          // only change the code above this line
+          assert.equal(getTotal(), 0);
+          assert.equal(getTotal(5), 5);
+          assert.equal(getTotal(5,7), 12);
+        });
+
+        test('fix it by using default params that calculate 21% tax by default', function() {
+
+            function getTotal(price, tax) {
+                return price + tax;
+            }
+
+            // only change the code above this line
+            assert.equal(getTotal(), 0);
+            assert.equal(getTotal(100), 121);
+            assert.equal(getTotal(100,21), 121);
+        });
+
+      });
+    </script>
+
+  </body>
+</html>

@@ -1,0 +1,73 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, minimum-scale=1, initial-scale=1, user-scalable=yes">
+
+    <title>Arrow functions =></title>
+
+    <script src="../../webcomponentsjs/webcomponents-lite.js"></script>
+    <script src="../../web-component-tester/browser.js"></script>
+
+  </head>
+  <body>
+
+    <script>
+      "use strict";
+
+      suite('destructuring', function() {
+
+        test('replace the functions with arrow functions', function() {
+
+            const greeting = 'fullStackFive';
+            // change code below this line
+            const {length} = greeting; // change this
+            // change code above this line
+            console.log(length); // should be using destructuring
+
+            assert.equal(length, 13);
+        });
+
+        test('Use destructuring to switch the values', function() {
+
+            let a = 'world';
+            let b = 'hello';
+            // change code below this line
+            [a,b] = [b,a];
+            // change code above this line
+
+            assert.equal(a, 'hello');
+            assert.equal(b, 'world');
+        });
+
+          test('Use destructuring and spread to get the variables', function() {
+
+              var numbersArray = [1, 2, 3, 4, 5];
+              // change code below this line
+              var [first,second, ...remaining] = numbersArray;
+              // change code above this line
+
+              assert.equal(first, 1);
+              assert.equal(second, 2);
+              assert.deepEqual(remaining, [3,4,5]);
+          });
+
+          test('Use object destructuring to get the max degrees for tomorrow', function() {
+              const forecast = {
+                  today: { min: 72, max: 83 },
+                  tomorrow: { min: 73.3, max: 84.6 }
+              };
+
+              // change code below this line
+              const {tomorrow: {max : maxOfTomorrow}} = forecast; // change this line
+              // change code above this line
+
+              assert.equal(maxOfTomorrow, 84.6);
+
+          });
+
+      });
+    </script>
+
+  </body>
+</html>

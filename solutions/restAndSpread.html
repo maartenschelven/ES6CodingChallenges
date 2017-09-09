@@ -1,0 +1,74 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, minimum-scale=1, initial-scale=1, user-scalable=yes">
+
+    <title>Rest and Spread</title>
+
+    <script src="../../webcomponentsjs/webcomponents-lite.js"></script>
+    <script src="../../web-component-tester/browser.js"></script>
+
+  </head>
+  <body>
+
+    <script>
+      "use strict";
+
+      suite('rest and spread', function() {
+
+        test('fix it by using rest operator', function() {
+
+          function sum(...z) {
+              const array = [...z];
+            return array.reduce((a, b) => a + b, 0);
+          }
+
+            // only change the code above this line
+          assert.equal(sum(1,2,3), 6);
+          assert.equal(sum(1,2,3,4), 10);
+          assert.equal(sum(5), 5);
+          assert.equal(sum(), 0);
+        });
+
+          test('fix it by using rest operator part 2 ', function() {
+
+              // The first param is the multiplier the others are then multiplied and returned in a Array
+              function multiply(multiply,...args) { //
+                   return args.map(function(element) { // replace the ? with something ...
+                      return multiply * element;
+                   });
+              }
+
+              // only change the code above this line
+              assert.deepEqual(multiply(2, 1), [2]);
+              assert.deepEqual(multiply(3, 1,10,100), [3,30,300]);
+
+          });
+
+        test('fix it by using the spread operator', function() {
+
+
+            const arr1 = ['JAN', 'FEB', 'MAR', 'APR', 'MAY'];
+            const arr2 = [...arr1]; // change this line
+            arr1.push('JUN');
+
+            // only change the code above this line
+            assert.deepEqual(arr1, ['JAN', 'FEB', 'MAR', 'APR', 'MAY', 'JUN']);
+            assert.deepEqual(arr2, ['JAN', 'FEB', 'MAR', 'APR', 'MAY']);
+        });
+
+          test('fix it by using the spread operator part 2', function() {
+
+              let prices = [12,20,18];
+              let maxPrice = Math.max(...prices) // change this line
+
+              // only change the code above this line
+              assert.equal(maxPrice, 20);
+          });
+
+      });
+    </script>
+
+  </body>
+</html>
