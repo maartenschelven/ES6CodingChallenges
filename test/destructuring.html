@@ -62,9 +62,35 @@
             const maxOfTomorrow = undefined; // change this line
             // change code above this line
 
-            assert.equal(maxOfTomorrow, 84.6;)
-
+            assert.equal(maxOfTomorrow, 84.6)
         });
+
+
+        test('Use object destructuring with default params and template litirals', function () {
+
+            let bon = {
+                name: 'Hema',
+                amount: 5,
+                tax: {
+                    low: 0.30
+                }
+            }
+
+            let factuur = {
+                name: 'Programming',
+                amount: 65,
+                tax: {
+                    high: 6.21
+                }
+            }
+
+            const prettyPrint = (destructeredParams) => {template:`litiral`};
+
+            assert.equal(prettyPrint(bon), 'name: Hema\namount: 5\ntax:\nhigh: 0.3\nlow: 0');
+            assert.equal(prettyPrint(factuur), 'name: Programming\namount: 65\ntax:\nhigh: 0\nlow: 6.21');
+        })
+
+
 
       });
     </script>
