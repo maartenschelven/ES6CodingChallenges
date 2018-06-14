@@ -14,7 +14,7 @@ If you are stuck you can check the solutions folder for the ... solutions.
 ## Testing with a visible browser
 
 ```
-$ polymer serve
+$ polymer serve -o
 GOTO: http://127.0.0.1:8081/components/es6-coding-dojo/test/index.html
 and you will see the results. Here it is also possible to add a debugger
 for future inspection.

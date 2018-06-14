@@ -66,6 +66,36 @@
 
           });
 
+
+          test('Use object destructuring with default params and template litirals', function () {
+              let bon = {
+                  name: 'Hema',
+                  amount: 5,
+                  tax: {
+                      low: 0.30
+                  }
+              }
+
+              let factuur = {
+                  name: 'Programming',
+                  amount: 65,
+                  tax: {
+                      high: 6.21
+                  }
+              }
+
+              const prettyPrint = ({name, amount, tax: {high = 0, low = 0}}) => {
+                  return `name: ${name}
+amount: ${amount}
+tax:
+high: ${low}
+low: ${high}`};
+
+              assert.equal(prettyPrint(bon), 'name: Hema\namount: 5\ntax:\nhigh: 0.3\nlow: 0');
+              assert.equal(prettyPrint(factuur), 'name: Programming\namount: 65\ntax:\nhigh: 0\nlow: 6.21');
+          })
+
+
       });
     </script>
 
